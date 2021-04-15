@@ -1,0 +1,22 @@
+.video-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.video-button-list {
+    display: flex;
+}
+
+.video-button-item {
+    padding: 1rem;
+    background-color: rgb(167, 211, 236);
+    font-family: sans-serif;
+    color: white;
+    outline: none;
+    border: 0;
+    border-right: 1px solid rgb(131, 176, 202);
+    border-top-right-radius: 7px;
+    border-top-left-radius: 7px;
+    min-width: 80px;
+    cursor: pointer;
+}

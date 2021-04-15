@@ -1,25 +1,24 @@
-import logo from './logo.svg';
+import React from 'react';
+import Home from './Components/Home/Home';
+import SearchResults from './Components/SearchResults/SearchResults';
+import EpisodeList from './Components/EpisodeList/EpisodeList';
+import { BrowserRouter, Route } from 'react-router-dom';
+import Watch from './Components/Watch/Watch';
+import Sidebar from './Components/Sidebar/Sidebar';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+    return (
+        <div className="app-main">
+            <BrowserRouter>
+                <Sidebar />
+                <Route path="/" exact component={Home} />
+                <Route path="/search" exact component={SearchResults} />
+                <Route path="/anime/:title" exact component={EpisodeList} />
+                <Route path="/watch/:title/:episode" exact component={Watch} />
+            </BrowserRouter>
+        </div>
+    )
 }
 
-export default App;
+export default App

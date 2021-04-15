@@ -1,0 +1,55 @@
+.episode-list {
+    flex: 4;
+    display: flex;
+    justify-content: center;
+}
+
+.episode-list-anime {
+    display: flex;
+    background-color: #222831;
+    margin: 2rem;
+    width: 100%;
+    box-shadow: 4px 2px 5px 0px rgba(0,0,0,0.45);
+    -webkit-box-shadow: 4px 2px 5px 0px rgba(0,0,0,0.45);
+    -moz-box-shadow: 4px 2px 5px 0px rgba(0,0,0,0.45);
+}
+.episode-list-anime img{
+    height: 320px;
+    width: 250px;
+    margin-bottom: 1rem;
+}
+
+.episode-list-anime-info {
+    display: flex;
+    flex-direction: column;
+    margin: 2rem;
+}
+
+.episode-list-anime-info-state {
+    display: flex;
+    list-style: none;
+    padding-left: 0;
+}
+
+.episode-list-anime-info-state li{
+    background-color: #ffa800;
+    padding: 0.5rem 1rem;
+    border-radius: 7px;
+    color: white;
+    font-weight: bold;
+    margin-right: 1rem;
+}
+
+.episode-list-anime-info p {
+    width: 250px;
+    color: white;
+    display: -webkit-box;
+    -webkit-line-clamp: 15;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+}
+
+.episode-list-pagination {
+    margin: 0 2rem 0 0;
+    width: 100%;
+}

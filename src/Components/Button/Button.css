@@ -1,0 +1,29 @@
+a {
+    text-decoration: none;
+}
+
+.btn {
+    background-color: #ffa800;
+    padding: 1rem;
+    border: none;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #ffce6c;
+}
+
+.btn-greyed {
+    background-color: rgb(116, 116, 116);
+    border: none;
+    padding: 1rem;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}

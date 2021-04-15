@@ -1,0 +1,25 @@
+.card a{
+    position: relative;
+    height: 300px;
+    width: fit-content;
+}
+
+.card a img {
+    height: 300px;
+    width: 225px;
+}
+
+.card-title {
+    position: absolute;
+    bottom: 4px;
+    background-color: #00000080;
+    width: 100%;
+    min-height: 50px;
+    text-align: center;
+}
+
+.card-title p {
+    color: white;
+    font-family: sans-serif;
+    padding: 10px;
+}
