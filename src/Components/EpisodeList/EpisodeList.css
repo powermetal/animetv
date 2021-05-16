@@ -6,7 +6,7 @@
 
 .episode-list-anime {
     display: flex;
-    background-color: #222831;
+    background-color: var(--secondary-dark);
     margin: 2rem;
     width: 100%;
     box-shadow: 4px 2px 5px 0px rgba(0,0,0,0.45);
@@ -32,17 +32,17 @@
 }
 
 .episode-list-anime-info-state li{
-    background-color: #ffa800;
+    background-color: var(--accent-dark);
     padding: 0.5rem 1rem;
     border-radius: 7px;
-    color: white;
+    color: var(--text-dark);
     font-weight: bold;
     margin-right: 1rem;
 }
 
 .episode-list-anime-info p {
     width: 250px;
-    color: white;
+    color: var(--text-dark);
     display: -webkit-box;
     -webkit-line-clamp: 15;
     overflow: hidden;
@@ -51,5 +51,12 @@
 
 .episode-list-pagination {
     margin: 0 2rem 0 0;
+    width: 100%;
+}
+
+.episode-list-loader {
+    align-self: center;
+    justify-content: center;
+    display: flex;
     width: 100%;
 }

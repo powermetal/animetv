@@ -1,5 +1,5 @@
 .sidebar-main {
-    background-color: #222831;
+    background-color: var(--secondary-dark);
     flex: 1;
     min-height: 100vh;
     display: flex;

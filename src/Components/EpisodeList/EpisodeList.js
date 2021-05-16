@@ -3,6 +3,8 @@ import { getEpisodeList } from '../../animeAPI';
 import { Link } from 'react-router-dom';
 import './EpisodeList.css';
 import PaginatedList from '../PaginatedList/PaginatedList';
+import Loader from "react-loader-spinner";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 const EpisodeList = (props) => {
     const [anime, setAnime] = useState({})
@@ -25,8 +27,6 @@ const EpisodeList = (props) => {
         getEpisodes()
     }, [props.match.params.title])
 
-
-
     const episodeList = {
         episodes: {
             tab: anime.title,
@@ -36,20 +36,32 @@ const EpisodeList = (props) => {
         }
     }
 
+    const renderList = () => {
+        if (anime.poster) {
+            return (
+                <>
+                    <div className="episode-list-anime-info">
+                        <img src={anime.poster} />
+                        <ul className="episode-list-anime-info-state">
+                            <li>{anime.type}</li>
+                            <li>{anime.state}</li>
+                        </ul>
+                        <p alt={anime.overview}>{anime.overview}</p>
+                    </div>
+                    <div className="episode-list-pagination">
+                        <PaginatedList tabs={episodeList} />
+                    </div>
+                </>
+            )
+        }
+        else
+            return <div className="episode-list-loader"><Loader type="Puff" color="#ffa800" height={100} width={100} /></div>
+    }
+
     return (
         <div className="episode-list">
             <div className="episode-list-anime">
-                <div className="episode-list-anime-info">
-                    <img src={anime.poster} />
-                    <ul className="episode-list-anime-info-state">
-                        <li>{anime.type}</li>
-                        <li>{anime.state}</li>
-                    </ul>
-                    <p alt={anime.overview}>{anime.overview}</p>
-                </div>
-                <div className="episode-list-pagination">
-                    <PaginatedList tabs={episodeList} />
-                </div>
+                {renderList()}
             </div>
         </div>
     )

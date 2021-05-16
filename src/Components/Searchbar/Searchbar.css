@@ -8,7 +8,7 @@
     padding: 1rem;
     outline: none;
     border: none;
-    background-color: #393e46;
-    color: white;
+    background-color: var(--primary-dark);
+    color: var(--text-dark);
     font-size: 1.2rem;
 }

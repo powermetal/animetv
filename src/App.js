@@ -7,9 +7,10 @@ import Watch from './Components/Watch/Watch';
 import Sidebar from './Components/Sidebar/Sidebar';
 import './App.css';
 
+
 const App = () => {
     return (
-        <div className="app-main">
+        <div className={`app-main`}>
             <BrowserRouter>
                 <Sidebar />
                 <Route path="/" exact component={Home} />

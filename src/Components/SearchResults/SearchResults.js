@@ -3,37 +3,20 @@ import { searchAnime } from '../../animeAPI';
 import qs from 'qs'
 import AnimeCard from '../AnimeCard/AnimeCard';
 import './SearchResults.css';
-import PaginatedContainer from '../PaginatedContainer/PaginatedContainer';
+import LazyPaginatedContainer from '../LazyPaginatedContainer/LazyPaginatedContainer';
 
 const SearchResults = (props) => {
 
-    const [results, setResults] = useState([])
-    const query = props.location.search
-
-    const searchAnimes = async (onSuccess) => {
-        const query = qs.parse(props.location.search, { ignoreQueryPrefix: true })
-        const response = await searchAnime(query)
-        setResults(response);
+    const searchAnimes = (page = 1) => {
+        const query = { ...qs.parse(props.location.search, { ignoreQueryPrefix: true }), page }
+        return searchAnime(query)
     }
 
-    useEffect(() => {
-        searchAnimes()
-    }, [props.location.search])
-
-    const renderContainer = () => {
-        const animes = {
-            results: {
-                items: results.map(a => <AnimeCard key={a.id} poster={a.poster} title={a.title} url={a.id} />),
-                errMessage: `Lo siento, no se encontraron resultados para tu busqueda`
-            }
-        }
-
-        return <PaginatedContainer key={query} tabs={animes} pageLimit={10} />
-    }
+    const toCard = anime => <AnimeCard key={anime.id} poster={anime.poster} title={anime.title} url={anime.id} />
 
     return (
         <div className="search-results">
-            {renderContainer()}
+            <LazyPaginatedContainer key={props.location.search} getContent={(pageNum) => searchAnimes(pageNum)} renderItem={toCard} />
         </div>
     )
 }

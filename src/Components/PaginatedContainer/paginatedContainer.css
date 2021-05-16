@@ -5,7 +5,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #222831;
+    background-color: var(--secondary-dark);
 }
 
 .paginated_container__actions {
@@ -38,7 +38,7 @@
     background-color: rgb(125 141 174);
     padding: 5px;
     border-radius: 7px;
-    color: white;
+    color: var(--text-dark);
 }
 
 .paginated_container__arrows {
@@ -58,7 +58,7 @@
 .paginated_container__err {
     font-weight: bold;
     text-align: center;
-    color: white;
+    color: var(--text-dark);
 }
 
 .paginated_container__pagination {

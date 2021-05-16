@@ -1,25 +1,26 @@
-.card a{
-    position: relative;
-    height: 300px;
-    width: fit-content;
+.card a {
+  position: relative;
+  height: 300px;
+  width: fit-content;
 }
 
 .card a img {
-    height: 300px;
-    width: 225px;
+  height: 250px;
+  width: 170px;
+  object-fit: cover;
 }
 
 .card-title {
-    position: absolute;
-    bottom: 4px;
-    background-color: #00000080;
-    width: 100%;
-    min-height: 50px;
-    text-align: center;
+  position: absolute;
+  bottom: 0;
+  background-color: #00000080;
+  width: 100%;
+  min-height: 50px;
+  text-align: center;
 }
 
 .card-title p {
-    color: white;
-    font-family: sans-serif;
-    padding: 10px;
+  color: var(--text-dark);
+  font-family: sans-serif;
+  padding: 10px;
 }

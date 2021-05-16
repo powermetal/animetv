@@ -1,7 +1,19 @@
+:root {
+  --primary-dark: #393e46;
+  --secondary-dark: #222831;
+  --accent-dark: #ffa800;
+  --text-dark: #ffffff;
+
+  --primary-light: #ffffff;
+  --secondary-light: #6e96be;
+  --color-text-accent: #326194;
+  --text-light: #000000;
+}
+
 body {
   margin: 0;
   box-sizing: border-box;
   font-family: sans-serif;
   padding: 0;
-  background-color: #393e46;
+  background-color: var(--primary-dark);
 }

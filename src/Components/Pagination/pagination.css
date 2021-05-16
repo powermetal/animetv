@@ -1,7 +1,7 @@
 .pagination {
     display: flex;
     align-items: center;
-    color: white;
+    color: var(--text-dark);
     justify-content: center;
 }
 
@@ -17,7 +17,7 @@
 }
 
 .pagination .MuiSvgIcon-root:hover {
-    color: white;
+    color: var(--text-dark);
 }
 
 @media screen and (max-width: 767px) {

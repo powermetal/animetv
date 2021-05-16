@@ -6,7 +6,7 @@ a {
     background-color: #ffa800;
     padding: 1rem;
     border: none;
-    color: white;
+    color: var(--text-dark);
     font-weight: bold;
     display: flex;
     align-items: center;
@@ -21,7 +21,7 @@ a {
     background-color: rgb(116, 116, 116);
     border: none;
     padding: 1rem;
-    color: white;
+    color: var(--text-dark);
     font-weight: bold;
     text-decoration: none;
     display: flex;

@@ -6,7 +6,7 @@ const Button = ({ btn }) => {
 
     return (
         <div>
-            <Link to={btn.url}><button className={`btn${btn.greyed ? '-greyed' : ''}`}>{btn.label}{btn.icon}</button></Link>
+            <Link to={btn.url}><button onClick={btn.fn ? btn.fn : null} className={`btn${btn.greyed ? '-greyed' : ''}`}>{btn.label}{btn.icon}</button></Link>
         </div>
     )
 }

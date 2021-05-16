@@ -11,7 +11,7 @@
     padding: 1rem;
     background-color: rgb(167, 211, 236);
     font-family: sans-serif;
-    color: white;
+    color: var(--text-dark);
     outline: none;
     border: 0;
     border-right: 1px solid rgb(131, 176, 202);
