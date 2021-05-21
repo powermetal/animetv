@@ -3,6 +3,7 @@ import Pagination from '../Pagination/Pagination';
 import './PaginatedList.css';
 import { Link } from 'react-router-dom';
 import ImportExportIcon from '@material-ui/icons/ImportExport';
+import ActionButton from '../ActionButton/ActionButton';
 
 const PaginatedList = ({ tabs }) => {
 
@@ -42,7 +43,7 @@ const PaginatedList = ({ tabs }) => {
                     <div key={`${tab}:${m.id}`} className={`movielist__item ${i % 2 === 0 ? 'even' : 'odd'}`}>
                         <Link to={m.url}><p>{m.title}</p></Link>
                         <div className="movielist__actions">
-                            {tabs[tab].actions.map((action, index) => <span key={`${tab}:${m.id}:${index}`}>{action(m)}</span>)}
+                            {tabs[tab].items[i].actions.map( a => <ActionButton id={m.id} action={a.action} icon={a.icon} />)}
                         </div>
                     </div>
                 )

@@ -1,19 +1,33 @@
 import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { getEpisodeList } from '../../animeAPI';
-import { Link } from 'react-router-dom';
 import './EpisodeList.css';
 import PaginatedList from '../PaginatedList/PaginatedList';
+import ActionButton from '../ActionButton/ActionButton';
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import VisibilityIcon from '@material-ui/icons/Visibility';
+import BookmarkIcon from '@material-ui/icons/Bookmark';
+import { addWatching } from '../../Redux/userSlice';
 
 const EpisodeList = (props) => {
     const [anime, setAnime] = useState({})
+    const dispatch = useDispatch()
+
+    const watchlist = <ActionButton action={() => console.log('cambiame')} icon={<BookmarkIcon />}/>
 
     const animeList = Array.from({ length: anime.episodeCount }, ((e, i) => {
         return {
             title: e = `${anime.title} - Episodio ${i + 1}`,
             id: i + 1,
-            url: `/watch/${props.match.params.title}/${i + 1}`
+            url: `/watch/${props.match.params.title}/${i + 1}`,
+            actions: [
+                {
+                    id: i + 1,
+                    icon: <VisibilityIcon />,
+                    action: (id) => dispatch(addWatching({animeId: props.match.params.title, lastEpisode: id }))
+                }
+            ]
         }
     }))
 
@@ -25,14 +39,13 @@ const EpisodeList = (props) => {
 
     useEffect(() => {
         getEpisodes()
-    }, [props.match.params.title])
+    }, [props.match.params.title]) 
 
     const episodeList = {
         episodes: {
             tab: anime.title,
             items: animeList,
-            default: true,
-            actions: []
+            default: true
         }
     }
 

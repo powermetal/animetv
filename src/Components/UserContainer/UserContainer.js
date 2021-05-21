@@ -2,8 +2,7 @@ import React from 'react';
 import { GoogleLogin, GoogleLogout } from 'react-google-login';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserData, googleOAuth } from '../../Login/googleOAuth';
-import { login, logout, handleUserData, isSignIn } from '../../Redux/userSlice';
-
+import { login, logout, fetchUserData, isSignIn } from '../../Redux/userSlice';
 
 const UserContainer = () => {
 
@@ -15,7 +14,7 @@ const UserContainer = () => {
 
     const onSuccess = (response) => {
         dispatch(login(getUserData(response)))
-        dispatch(handleUserData(response.googleId))    
+        dispatch(fetchUserData(response.googleId))    
     }
 
     const onFailure = (response) => {

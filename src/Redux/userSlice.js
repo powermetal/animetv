@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { getUserData } from '../userAPI';
+import { getUserData, postToWatching } from '../userAPI';
 
-export const handleUserData = createAsyncThunk(
+export const fetchUserData = createAsyncThunk(
     'user/userData',
         userId => {
             const response = getUserData(userId)
@@ -9,10 +9,20 @@ export const handleUserData = createAsyncThunk(
         }
   )
 
+export const addWatching = createAsyncThunk(
+    'user/watching',
+        (anime, thunkAPI) => {
+            thunkAPI.dispatch(addToWatching(anime))
+            postToWatching(thunkAPI.getState().user.googleId, anime)
+        }
+)
+
 const defaultState = {
     googleId: '',
     name: '',
-    avatar: ''
+    avatar: '',
+    watching: {},
+    watchlist: []
 }
 
 export const userSlice = createSlice({
@@ -24,12 +34,14 @@ export const userSlice = createSlice({
         },
         logout: () => {
             return { ...defaultState }
+        },
+        addToWatching: (state, action) => {
+            return {...state, watching: {...state.watching, [action.payload.animeId]: action.payload.episode}}
         }
     },
 
     extraReducers: {
-        [handleUserData.fulfilled]: (state, action) => {
-            console.log(action.payload)
+        [fetchUserData.fulfilled]: (state, action) => {
             return { ...state, ...action.payload }
         }
     }
@@ -40,6 +52,7 @@ export const isSignIn = state => state.user.googleId ? true : false
 export const {
     login,
     logout,
+    addToWatching
 } = userSlice.actions
 
 export default userSlice.reducer

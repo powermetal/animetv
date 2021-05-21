@@ -5,7 +5,12 @@ const userAPI = axios.create({
 })
 
 export const getUserData = id => {
-    console.log('hola' + id)
     return userAPI.get(`/users/${id}`)
             .then(response => response.data, e => console.log(e))
+}
+
+export const postToWatching = (id, anime) => {
+    console.log(anime)
+    return userAPI.post(`/users/${id}/watching`, anime)
+                    .then(response => console.log(response), e => console.log(e))
 }
