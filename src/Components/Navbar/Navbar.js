@@ -1,5 +1,5 @@
 import React from 'react';
-import './Sidebar.css';
+import './Navbar.css';
 import Searchbar from '../Searchbar/Searchbar';
 import { useHistory } from 'react-router-dom';
 import UserContainer from '../UserContainer/UserContainer';
@@ -15,7 +15,7 @@ const Sidebar = () => {
     }
 
     return (
-        <div className="sidebar-main">
+        <div className="navbar-main">
             <Searchbar onSearch={onSubmit} />
             <UserContainer />
         </div>

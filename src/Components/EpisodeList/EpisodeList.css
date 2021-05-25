@@ -1,62 +1,82 @@
 .episode-list {
-    flex: 4;
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 1420px;
+  min-height: 60vh;
 }
 
 .episode-list-anime {
-    display: flex;
-    background-color: var(--secondary-dark);
-    margin: 2rem;
-    width: 100%;
-    box-shadow: 4px 2px 5px 0px rgba(0,0,0,0.45);
-    -webkit-box-shadow: 4px 2px 5px 0px rgba(0,0,0,0.45);
-    -moz-box-shadow: 4px 2px 5px 0px rgba(0,0,0,0.45);
+  display: flex;
+  background-color: var(--secondary-dark);
+  width: 100%;
 }
-.episode-list-anime img{
-    height: 320px;
-    width: 250px;
-    margin-bottom: 1rem;
+.episode-list-anime img {
+  height: 320px;
+  width: 250px;
+  margin-bottom: 1rem;
 }
 
 .episode-list-anime-info {
-    display: flex;
-    flex-direction: column;
-    margin: 2rem;
+  display: flex;
+  flex-direction: column;
+  margin: 2rem 2rem 0 0;
 }
 
 .episode-list-anime-info-state {
-    display: flex;
-    list-style: none;
-    padding-left: 0;
+  display: flex;
+  list-style: none;
+  padding-left: 0;
 }
 
-.episode-list-anime-info-state li{
-    background-color: var(--accent-dark);
-    padding: 0.5rem 1rem;
-    border-radius: 7px;
-    color: var(--text-dark);
-    font-weight: bold;
-    margin-right: 1rem;
+.episode-list-anime-info-state li {
+  background-color: var(--accent-dark);
+  padding: 0.5rem 1rem;
+  border-radius: 7px;
+  color: var(--text-dark);
+  font-weight: bold;
+  margin-right: 1rem;
 }
 
 .episode-list-anime-info p {
-    width: 250px;
-    color: var(--text-dark);
-    display: -webkit-box;
-    -webkit-line-clamp: 15;
-    overflow: hidden;
-    -webkit-box-orient: vertical;
+  width: 250px;
+  color: var(--text-dark);
+  display: -webkit-box;
+  -webkit-line-clamp: 15;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
 }
 
 .episode-list-pagination {
-    margin: 0 2rem 0 0;
-    width: 100%;
+  width: 100%;
 }
 
 .episode-list-loader {
-    align-self: center;
-    justify-content: center;
-    display: flex;
-    width: 100%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@media screen and (max-width: 1400px) {
+  .episode-list {
+    width: 90%;
+    margin-bottom: 1rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .episode-list-anime {
+    flex-direction: column;
+  }
+  .episode-list-anime-info {
+    flex-direction: row;
+    margin: 2rem 2rem 0 0;
+  }
+  .episode-list-anime-info-state {
+    display: none;
+  }
+  .episode-list-anime img {
+    margin-right: 1rem;
+  }
 }

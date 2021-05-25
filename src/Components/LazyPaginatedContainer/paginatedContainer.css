@@ -6,6 +6,7 @@
   align-items: center;
   justify-content: center;
   background-color: var(--secondary-dark);
+  margin: 1rem;
 }
 
 .paginated_container__actions {
@@ -49,7 +50,7 @@
   display: grid;
   grid-template: auto / 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-gap: 3.5rem;
-  margin: 5rem;
+  margin: 1rem;
 }
 
 .paginated_container__item {
@@ -82,6 +83,18 @@
 
 .paginated_container__pagination .MuiSvgIcon-root {
   font-size: 2rem;
+}
+
+@media screen and (max-width: 1400px) {
+  .paginated_container__items {
+    grid-template: auto / 1fr 1fr 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .paginated_container__items {
+    grid-template: auto / 1fr 1fr 1fr;
+  }
 }
 
 @media screen and (max-width: 768px) {

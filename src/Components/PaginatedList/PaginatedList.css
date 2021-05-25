@@ -1,128 +1,142 @@
 .movielist {
-    padding-top: 2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 2rem;
-    width: 100%;
+  padding-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
 
 .movielist a {
-    text-decoration: none;
-    color: var(--text-dark);
-    font-weight: 520;
+  text-decoration: none;
+  color: var(--text-dark);
+  font-weight: 520;
 }
 
 .movielist__empty {
-    padding: 2rem;
-    background-color: #ececec;
-    text-align: center;
-    font-weight: bold;
+  padding: 2rem;
+  background-color: #ececec;
+  text-align: center;
+  font-weight: bold;
 }
 
 .movielist__items {
-    width: 100%;
+  width: 100%;
 }
 
 .movielist__item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem;
-    color: var(--text-dark);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem;
+  color: var(--text-dark);
 }
 
 .movielist__item.even {
-    background-color: #5a6377;
+  background-color: #5a6377;
 }
 
-.movielist__item.odd{
-    background-color: rgb(68, 75, 91);
+.movielist__item.odd {
+  background-color: rgb(68, 75, 91);
 }
 
 .movielist__actions {
-    display: flex;
+  display: flex;
 }
 
-.movielist__actions  .MuiSvgIcon-root {
-    cursor: pointer;
-    margin-left: 1rem;
-    color: black;
+.movielist__actions .MuiSvgIcon-root {
+  cursor: pointer;
+  margin-left: 1rem;
+  color: black;
 }
 
 .movielist__header {
-    width: 100%;
-    padding: 1rem 0;
-    background-color: #1c2128;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  width: 100%;
+  background-color: #1c2128;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .movielist__tabs span {
-    padding: 0.5rem 1rem;
-    margin: 1rem;
-    cursor: pointer;
-    border-radius: 7px;
-    color: var(--text-dark);
-    font-weight: bold;
+  padding: 0.5rem 1rem;
+  margin: 1rem;
+  cursor: pointer;
+  border-radius: 7px;
+  color: var(--text-dark);
+  font-weight: bold;
+  display: -webkit-box;
+  -webkit-line-clamp: 15;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
 }
 
 .movielist__tabs span:hover {
-    background-color: #c89c43;
+  background-color: #c89c43;
 }
 
 .movielist__tabs span.activeTab {
-    background-color: #ffa800;
+  background-color: #ffa800;
 }
 
 .movielist__pagination {
-    display: flex;
-    margin: 0 1rem
+  display: flex;
+  margin: 0 1rem;
 }
 
-.movielist__pagination span{
-    color: var(--text-dark);
-    font-weight: bold;
-    font-size: 1rem;
+.movielist__pagination span {
+  color: var(--text-dark);
+  font-weight: bold;
+  font-size: 1rem;
 }
 
 .movielist__pagination .MuiSvgIcon-root {
-    color: #ffa800;
-    font-size: 2rem;
-    cursor: pointer;
+  color: #ffa800;
+  font-size: 2rem;
+  cursor: pointer;
 }
 
 .movielist__pagination .MuiSvgIcon-root:hover {
-    color: rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
 }
 
 @media screen and (max-width: 768px) {
-    .movielist {
-        margin-left: 1rem;
-        margin-right: 1rem;
-    }
+  .movielist {
+    margin-left: 0rem;
+    margin-right: 1rem;
+  }
 
-    .movielist__items {
-        min-width: 100%;
-    }
+  .movielist__items {
+    min-width: 100%;
+    display: -webkit-box;
+    -webkit-line-clamp: 15;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+  }
 
-    .movielist__item {
-        min-width: 100%;
-    }
+  .movielist__item {
+    display: -webkit-box;
+    -webkit-line-clamp: 15;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    display: flex;
+  }
 
-    .movielist__header {
-        width: 100%;
-        justify-content: space-between;
-    }
+  .movielist__item p {
+    width: 40ch;
+  }
 
-    .movielist__empty {
-        min-width: 100%;
-    }
+  .movielist__header {
+    width: 100%;
+    justify-content: space-between;
+  }
 
-    .movielist__tabs span {
-        padding: 0.5rem;
-        margin: 0.3rem;
-        font-size: .8rem;
-    }
+  .movielist__empty {
+    min-width: 100%;
+  }
+
+  .movielist__tabs span {
+    padding: 0.5rem;
+    margin: 0.3rem;
+    font-size: 0.8rem;
+  }
 }

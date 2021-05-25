@@ -7,7 +7,7 @@ import ActionButton from '../ActionButton/ActionButton';
 
 const PaginatedList = ({ tabs }) => {
 
-    const pageLimit = 9
+    const pageLimit = 10
 
     const getDefaultState = () => {
         return Object.entries(tabs).find(([k, i]) => i.default)[0]
@@ -43,7 +43,7 @@ const PaginatedList = ({ tabs }) => {
                     <div key={`${tab}:${m.id}`} className={`movielist__item ${i % 2 === 0 ? 'even' : 'odd'}`}>
                         <Link to={m.url}><p>{m.title}</p></Link>
                         <div className="movielist__actions">
-                            {tabs[tab].items[i].actions.map( a => <ActionButton id={m.id} action={a.action} icon={a.icon} />)}
+                            {m.actions.map( a => <ActionButton action={a.action} icon={a.icon} />)}
                         </div>
                     </div>
                 )

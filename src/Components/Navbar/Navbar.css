@@ -1,0 +1,6 @@
+.navbar-main {
+  display: flex;
+  align-items: center;
+  width: 90%;
+  max-width: 1420px;
+}

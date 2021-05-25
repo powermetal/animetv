@@ -1,14 +1,30 @@
 .searchbar {
-    width: 100%;
-    margin: 1rem;
+  width: 100%;
+  margin: 1rem 0;
+}
+
+.searchbar form {
+  position: relative;
+}
+
+.searchbar .MuiSvgIcon-root {
+  position: absolute;
+  font-size: 2rem;
+  color: white;
+  bottom: 1rem;
+  left: 0.5rem;
 }
 
 .searchbar-input {
-    min-width: 90%;
-    padding: 1rem;
-    outline: none;
-    border: none;
-    background-color: var(--primary-dark);
-    color: var(--text-dark);
-    font-size: 1.2rem;
+  min-width: 90%;
+  padding: 1rem;
+  outline: none;
+  background-color: transparent;
+  color: var(--text-dark);
+  font-size: 1.2rem;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  border-bottom: 3px var(--accent-dark) solid;
+  text-indent: 2rem;
 }

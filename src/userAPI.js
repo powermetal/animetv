@@ -10,7 +10,11 @@ export const getUserData = id => {
 }
 
 export const postToWatching = (id, anime) => {
-    console.log(anime)
     return userAPI.post(`/users/${id}/watching`, anime)
+                    .then(response => console.log(response), e => console.log(e))
+}
+
+export const postToWatchlist = (id, anime) => {
+    return userAPI.post(`/users/${id}/watchlist`, anime)
                     .then(response => console.log(response), e => console.log(e))
 }

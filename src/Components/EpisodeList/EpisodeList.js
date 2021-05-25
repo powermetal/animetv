@@ -8,7 +8,7 @@ import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import VisibilityIcon from '@material-ui/icons/Visibility';
 import BookmarkIcon from '@material-ui/icons/Bookmark';
-import { addWatching } from '../../Redux/userSlice';
+import { addWatching, addWatchlist } from '../../Redux/userSlice';
 
 const EpisodeList = (props) => {
     const [anime, setAnime] = useState({})
@@ -23,9 +23,15 @@ const EpisodeList = (props) => {
             url: `/watch/${props.match.params.title}/${i + 1}`,
             actions: [
                 {
-                    id: i + 1,
                     icon: <VisibilityIcon />,
-                    action: (id) => dispatch(addWatching({animeId: props.match.params.title, lastEpisode: id }))
+                    action: () => {
+                        console.log({animeId: props.match.params.title, lastEpisode: i + 1  })
+                        dispatch(addWatching({animeId: props.match.params.title, lastEpisode: i + 1  }))
+                    }
+                },
+                {
+                    icon: <BookmarkIcon />,
+                    action: () => dispatch(addWatchlist(props.match.params.title))
                 }
             ]
         }

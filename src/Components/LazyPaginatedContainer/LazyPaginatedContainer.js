@@ -40,15 +40,22 @@ const LazyPaginatedContainer = ({ getContent, renderItem }) => {
         }
     }
 
+    const renderButtons = () => {
+        if(state.items[state.page])
+            return (
+            <div className="paginated_container__pagination">
+                <button onClick={onPreviousPage}><NavigateBeforeIcon />prev</button>
+                <button onClick={onNextPage}>next <NavigateNextIcon /></button>
+            </div>
+            )
+    }
+
     return (
         <div className="paginated_container">
             <div className="paginated_container__items">
                 {renderItems()}
             </div>
-            <div className="paginated_container__pagination">
-                <button onClick={onPreviousPage}><NavigateBeforeIcon />prev</button>
-                <button onClick={onNextPage}>next <NavigateNextIcon /></button>
-            </div>
+            {renderButtons()}
         </div>
     )
 }
