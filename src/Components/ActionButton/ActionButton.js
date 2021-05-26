@@ -1,9 +1,9 @@
 import React from 'react';
 
-const ActionButton = ({action, icon}) => {
+const ActionButton = ({action, icon, text}) => {
 
     const renderButton = () => {
-        return <div onClick={() => action()}>{icon}</div>
+        return <div className="action-button" onClick={() => action()}>{icon} <span>{text}</span></div>
     }
 
     return (

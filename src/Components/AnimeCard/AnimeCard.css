@@ -13,14 +13,24 @@
 .card-title {
   position: absolute;
   bottom: 0;
-  background-color: #00000080;
+  background-color: #000000a2;
   width: 100%;
   min-height: 50px;
   text-align: center;
+  font-weight: bold;
 }
 
 .card-title p {
   color: var(--text-dark);
   font-family: sans-serif;
-  padding: 10px;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+}
+
+.card-title p:hover {
+  -webkit-line-clamp: 10;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
 }

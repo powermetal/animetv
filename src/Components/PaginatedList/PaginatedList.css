@@ -45,8 +45,9 @@
 
 .movielist__actions .MuiSvgIcon-root {
   cursor: pointer;
-  margin-left: 1rem;
-  color: black;
+  margin-right: 1rem;
+  color: white;
+  font-size: 2rem;
 }
 
 .movielist__header {
