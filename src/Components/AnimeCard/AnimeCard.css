@@ -1,3 +1,7 @@
+.card:hover {
+  filter: brightness(1.25);
+}
+
 .card a {
   position: relative;
   height: 300px;
@@ -10,9 +14,20 @@
   object-fit: cover;
 }
 
+.card a span {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  background-color: var(--accent-dark);
+  font-weight: bold;
+  padding: 0.2rem;
+  min-height: 2.5rem;
+  justify-content: center;
+}
+
 .card-title {
   position: absolute;
-  bottom: 0;
+  bottom: 3px;
   background-color: #000000a2;
   width: 100%;
   min-height: 50px;

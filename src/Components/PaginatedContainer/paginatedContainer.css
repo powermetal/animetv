@@ -47,8 +47,9 @@
 
 .paginated_container__items {
   display: grid;
-  grid-template: auto / 1fr 1fr 1fr 1fr 1fr;
+  grid-template: auto / 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-gap: 3.5rem;
+  margin: 1rem;
 }
 
 .paginated_container__item {
@@ -62,7 +63,37 @@
 }
 
 .paginated_container__pagination {
-  padding-top: 1rem;
+  display: flex;
+}
+
+.paginated_container__pagination button {
+  padding: 1rem 1rem 1rem 1rem;
+  background-color: var(--accent-dark);
+  border: none;
+  margin: 1rem;
+  border-radius: 7px;
+  color: var(--text-dark);
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.paginated_container__pagination .MuiSvgIcon-root {
+  font-size: 2rem;
+}
+
+@media screen and (max-width: 1400px) {
+  .paginated_container__items {
+    grid-template: auto / 1fr 1fr 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .paginated_container__items {
+    grid-template: auto / 1fr 1fr 1fr;
+  }
 }
 
 @media screen and (max-width: 768px) {

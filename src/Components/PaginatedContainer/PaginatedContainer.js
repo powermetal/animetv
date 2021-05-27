@@ -1,56 +1,46 @@
 import React, { useState, useEffect } from 'react';
 import Pagination from '../Pagination/Pagination';
 import './paginatedContainer.css';
+import Loader from "react-loader-spinner";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
-const PaginatedContainer = ({ pageLimit, tabs, activeTab }) => {
-
-    const getDefaultTab = () => {
-        if (activeTab)
-            return activeTab
-        else
-            return Object.keys(tabs)[0]
-    }
+const PaginatedContainer = ({ pageLimit, items }) => {
 
     const getDisplayedContent = () => {
-        return tabs[selectedTab ? selectedTab : getDefaultTab()].items.slice(0, pageLimit)
+        return items.slice(0, pageLimit)
     }
 
-    const [selectedTab, setSelectedTab] = useState(getDefaultTab())
     const [displayedContent, setDisplayedContent] = useState(getDisplayedContent())
 
     useEffect(() => {
         setDisplayedContent(getDisplayedContent())
-    }, [tabs[selectedTab].items])
+    }, [items])
 
     const handlePageChange = (currentPage, from, to) => {
-        setDisplayedContent(tabs[selectedTab].items.slice(from, to + 1))
+        setDisplayedContent(items.slice(from, to + 1))
+    }
+    
+    const renderItems = () => {
+        if (items.length) {
+            return (
+                <div className="paginated_container">
+                    <div className="paginated_container__items">
+                        {displayedContent && displayedContent.map((item, index) => <div key={index} className="paginated_container__item">{item}</div>)}
+                        {displayedContent.length === 0 ? <div className="paginated_container__err">Aun no has marcado animes como visto</div> : null}
+                    </div>
+                    <div className="paginated_container__pagination">
+                        {displayedContent.length > 0 ? <Pagination pageLimit={pageLimit} totalRecords={items.length} onPageChanged={handlePageChange} /> : null}
+                    </div>
+                </div >
+            )
+        } else {
+            return <div className="episode-list-loader"><Loader type="Puff" color="#ffa800" height={100} width={100} /></div>
+        }
     }
 
-    const handleTabClicked = (tab) => {
-        setSelectedTab(tab)
-    }
-
-    const handleActiveTab = (tab) => {
-        if (tab === selectedTab)
-            return "paginated_container__tab active"
-        return "paginated_container__tab"
-    }
 
     return (
-        <div className="paginated_container">
-            <div className="paginated_container__actions">
-                <div>
-                    {Object.entries(tabs).map(([k, tab]) => <button key={k} className={handleActiveTab(k)} onClick={e => handleTabClicked(k)}>{tab.label}</button>)}
-                </div>
-            </div>
-            <div className="paginated_container__items">
-                {displayedContent && displayedContent.map((item, index) => <div key={index} className="paginated_container__item">{item}</div>)}
-                {displayedContent.length === 0 ? <div className="paginated_container__err">{tabs[selectedTab].errMessage}</div> : null}
-            </div>
-            <div className="paginated_container__pagination">
-                {displayedContent.length > 0 ? <Pagination key={selectedTab} pageLimit={pageLimit} totalRecords={tabs[selectedTab].items.length} onPageChanged={handlePageChange} /> : null}
-            </div>
-        </div >
+        renderItems()
     )
 }
 

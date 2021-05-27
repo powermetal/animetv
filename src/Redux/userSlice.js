@@ -44,7 +44,7 @@ export const userSlice = createSlice({
             return { ...defaultState }
         },
         addToWatching: (state, action) => {
-            return {...state, watching: {...state.watching, [action.payload.animeId]: action.payload.episode}}
+            return {...state, watching: {...state.watching, [action.payload.animeId]: action.payload.lastEpisode}}
         },
         addToWatchlist: (state, action) => {
             if(state.watchlist.find(e => e.animeId === action.payload.animeId))
@@ -55,7 +55,12 @@ export const userSlice = createSlice({
 
     extraReducers: {
         [fetchUserData.fulfilled]: (state, action) => {
-            return { ...state, ...action.payload }
+            const watching = action.payload.watching.reduce( (acc, e) => {
+                acc[e.animeId] = e.lastEpisode
+                return acc
+            },{})
+
+            return { ...state, watchlist: action.payload.watchlist, watching: watching }
         }
     }
 });
@@ -63,6 +68,7 @@ export const userSlice = createSlice({
 export const isSignIn = state => state.user.googleId ? true : false
 export const selectUser = state => state.user
 export const selectWatchlist = state => state.user.watchlist
+export const selectWatching = state => state.user.watching
 
 
 export const {

@@ -6,7 +6,6 @@
   align-items: center;
   justify-content: center;
   background-color: var(--secondary-dark);
-  margin: 1rem;
 }
 
 .paginated_container__actions {
