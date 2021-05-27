@@ -15,6 +15,6 @@ export const postToWatching = (id, anime) => {
 }
 
 export const postToWatchlist = (id, anime) => {
-    return userAPI.post(`/users/${id}/watchlist`, {animeId: anime})
+    return userAPI.post(`/users/${id}/watchlist`, anime)
                     .then(response => console.log(response), e => console.log(e))
 }

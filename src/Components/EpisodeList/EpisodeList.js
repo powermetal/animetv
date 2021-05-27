@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getEpisodeList } from '../../animeAPI';
 import './EpisodeList.css';
 import PaginatedList from '../PaginatedList/PaginatedList';
@@ -9,13 +9,12 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import VisibilityIcon from '@material-ui/icons/Visibility';
 import BookmarkIcon from '@material-ui/icons/Bookmark';
 import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
-import { addWatching, addWatchlist } from '../../Redux/userSlice';
+import { addWatching, addWatchlist, selectWatchlist } from '../../Redux/userSlice';
 
 const EpisodeList = (props) => {
     const [anime, setAnime] = useState({})
     const dispatch = useDispatch()
-
-    const watchlist = <ActionButton action={() => console.log('cambiame')} icon={<BookmarkIcon />}/>
+    const watchlist = useSelector(selectWatchlist)
 
     const animeList = Array.from({ length: anime.episodeCount }, ((e, i) => {
         return {
@@ -52,6 +51,13 @@ const EpisodeList = (props) => {
         }
     }
 
+    const watchlistButton = () => {
+        if(watchlist.find( e => e.animeId === props.match.params.title))
+            return <ActionButton icon={<BookmarkIcon />} text="Watchlist" action={() => dispatch(addWatchlist({animeId: props.match.params.title}))} />
+        else
+            return <ActionButton icon={<BookmarkBorderIcon />} text="Watchlist" action={() => dispatch(addWatchlist({animeId: props.match.params.title}))} />
+    }
+
     const renderList = () => {
         if (anime.poster) {
             return (
@@ -59,7 +65,7 @@ const EpisodeList = (props) => {
                     <div className="episode-list-anime-info">
                         <div className="episode-list-anime-info-poster">
                             <img src={anime.poster} />
-                            <ActionButton icon={<BookmarkBorderIcon />} text="Watchlist" action={() => dispatch(addWatchlist(props.match.params.title))} />
+                            {watchlistButton()}
                         </div>
                         <ul className="episode-list-anime-info-state">
                             <li>{anime.type}</li>

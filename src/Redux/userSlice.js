@@ -47,7 +47,7 @@ export const userSlice = createSlice({
             return {...state, watching: {...state.watching, [action.payload.animeId]: action.payload.episode}}
         },
         addToWatchlist: (state, action) => {
-            if(state.watchlist.find(e => e === action.payload))
+            if(state.watchlist.find(e => e.animeId === action.payload.animeId))
                 return state
             return {...state, watchlist: [...state.watchlist, action.payload]}
         }
@@ -61,6 +61,9 @@ export const userSlice = createSlice({
 });
 
 export const isSignIn = state => state.user.googleId ? true : false
+export const selectUser = state => state.user
+export const selectWatchlist = state => state.user.watchlist
+
 
 export const {
     login,

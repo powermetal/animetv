@@ -1,15 +1,21 @@
-import React from 'react';
-import { GoogleLogin, GoogleLogout } from 'react-google-login';
+import React, { useEffect, useState } from 'react';
+import './UserContainer.css'
+import { GoogleLogin, useGoogleLogout } from 'react-google-login';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserData, googleOAuth } from '../../Login/googleOAuth';
-import { login, logout, fetchUserData, isSignIn } from '../../Redux/userSlice';
+import { login, logout, fetchUserData, isSignIn, selectUser } from '../../Redux/userSlice';
+import DropDownMenu from '../DropDownMenu/DropDownMenu';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import BookmarksIcon from '@material-ui/icons/Bookmarks';
+import VideoLibraryIcon from '@material-ui/icons/VideoLibrary';
 
 const UserContainer = () => {
 
+    const [open, setOpen] = useState(false)
+    const menuRef = React.createRef()
     const signedIn = useSelector(isSignIn)
-    
+    const user = useSelector(selectUser)
     const dispatch = useDispatch()
-    
     const queryParams = "/animes?search=j&page=1"
 
     const onSuccess = (response) => {
@@ -21,14 +27,52 @@ const UserContainer = () => {
         return console.log(response)
     }
 
+    const handleBlur = (e) => {
+        if (!e.currentTarget.contains(e.relatedTarget)) {
+            setOpen(false)
+        }
+    }
+    
+        const onLogoutSuccess = () => {
+            dispatch(logout())
+        }
+
+    const { signOut, signOutloaded } = useGoogleLogout({
+        onFailure,
+        ...googleOAuth,
+        onLogoutSuccess
+    })
+
+    const logoutMenu = () => {
+        signOut()
+        setOpen(false)
+    }
+
+    useEffect(() => {
+        if (menuRef.current)
+            menuRef.current.focus()
+    }, [open])
+
     const renderGoogle = () => {
         if(signedIn) {
             return (
-            <GoogleLogout
-                clientId= {googleOAuth.clientId}
-                buttonText= "Logout"
-                onLogoutSuccess={() => dispatch(logout())}
-            />)
+            <div className="user-container" onClick={() => setOpen(!open)}>
+                <img src={user.avatar} />
+                <p>{user.name}</p>
+                <div className="user-container-menu">
+                    <DropDownMenu
+                        ref={menuRef}
+                        active={open}
+                        blur={handleBlur}
+                        items={[
+                            { value: 'Watching', path: '/', icon: <VideoLibraryIcon />, action: () => setOpen(false) },
+                            { value: 'Watchlist', path: '/watchlist', icon: <BookmarksIcon />, action: () => setOpen(false) },
+                            { value: 'Logout', icon: <ExitToAppIcon />, action: logoutMenu}
+                        ]}
+                    />
+                </div>
+            </div>
+            )
         }
         else
         return (

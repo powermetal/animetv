@@ -31,6 +31,7 @@
   font-weight: bold;
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 
 .episode-list-anime-info-poster .action-button span {
@@ -58,11 +59,6 @@
   margin-right: 0.5rem;
   display: flex;
   align-items: center;
-}
-
-.episode-list-anime-info-state li:last-child {
-  padding: 0.3rem;
-  cursor: pointer;
 }
 
 .episode-list-anime-info p {
@@ -103,7 +99,8 @@
   .episode-list-anime-info-state {
     display: none;
   }
-  .episode-list-anime img {
-    margin-right: 1rem;
+  .episode-list-anime-info p {
+    margin-left: 2rem;
+    -webkit-line-clamp: 17;
   }
 }

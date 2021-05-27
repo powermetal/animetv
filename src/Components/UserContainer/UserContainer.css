@@ -1,0 +1,38 @@
+.user-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.user-container img {
+  height: 2rem;
+  margin-right: 1rem;
+  border-radius: 50%;
+}
+
+.user-container p {
+  color: white;
+  font-weight: bold;
+}
+
+.user-container-menu {
+  position: absolute;
+  top: 3rem;
+  left: 0;
+  z-index: 200;
+}
+
+@media screen and (max-width: 768px) {
+  .user-container p {
+    display: none;
+  }
+
+  .user-container img {
+    margin: 0;
+  }
+
+  .user-container-menu {
+    left: -8rem;
+  }
+}
