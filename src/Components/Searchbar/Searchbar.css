@@ -27,4 +27,5 @@
   border-top: none;
   border-bottom: 3px var(--accent-dark) solid;
   text-indent: 2rem;
+  border-radius: 7px;
 }

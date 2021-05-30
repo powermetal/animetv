@@ -19,8 +19,6 @@ const VideoPlayer = (props) => {
                 src={selectedVideo}
                 scrolling="no"
                 frameBorder="0"
-                width="848"
-                height="480"
                 allowFullScreen={true}
                 controls={0}
             />

@@ -25,7 +25,14 @@ const Home = () => {
       if(animes.length)
       console.log(animes)
         return animes.map( anime => {
-            return <AnimeCard key={anime.animeId} nextEpisodeDate={anime.nextEpisodeDate} episode={anime.nextEpisode} title={anime.title} poster={anime.poster} url={anime.animeId} />
+            return <AnimeCard
+                      key={anime.animeId}
+                      nextEpisodeDate={anime.nextEpisodeDate}
+                      episode={anime.nextEpisode} title={anime.title}
+                      poster={anime.poster}
+                      url={`${anime.animeId}/${anime.nextEpisode}`}
+                      type={'watch'}
+                    />
         } )        
   }
 

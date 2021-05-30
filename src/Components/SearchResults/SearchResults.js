@@ -12,7 +12,7 @@ const SearchResults = (props) => {
         return searchAnime(query)
     }
 
-    const toCard = anime => <AnimeCard key={anime.id} poster={anime.poster} title={anime.title} url={anime.id} />
+    const toCard = anime => <AnimeCard key={anime.id} poster={anime.poster} title={anime.title} url={anime.id} type={'search'} />
 
     return (
         <div className="search-results">

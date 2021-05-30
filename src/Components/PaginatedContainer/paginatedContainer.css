@@ -4,8 +4,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   background-color: var(--secondary-dark);
+  min-height: 77vh;
 }
 
 .paginated_container__actions {

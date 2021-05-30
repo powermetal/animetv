@@ -7,14 +7,23 @@ import ActionButton from '../ActionButton/ActionButton';
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import VisibilityIcon from '@material-ui/icons/Visibility';
+import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
 import BookmarkIcon from '@material-ui/icons/Bookmark';
 import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
-import { addWatching, addWatchlist, selectWatchlist } from '../../Redux/userSlice';
+import { addWatching,
+         addWatchlist,
+         selectWatchlist,
+         removeFromWatchlist }
+from '../../Redux/userSlice';
 
 const EpisodeList = (props) => {
     const [anime, setAnime] = useState({})
     const dispatch = useDispatch()
     const watchlist = useSelector(selectWatchlist)
+
+    const isInWatching = () => {
+
+    }
 
     const animeList = Array.from({ length: anime.episodeCount }, ((e, i) => {
         return {
@@ -53,7 +62,7 @@ const EpisodeList = (props) => {
 
     const watchlistButton = () => {
         if(watchlist.find( e => e.animeId === props.match.params.title))
-            return <ActionButton icon={<BookmarkIcon />} text="Watchlist" action={() => dispatch(addWatchlist({animeId: props.match.params.title}))} />
+            return <ActionButton icon={<BookmarkIcon />} text="Watchlist" action={() => dispatch(removeFromWatchlist({animeId: props.match.params.title}))} />
         else
             return <ActionButton icon={<BookmarkBorderIcon />} text="Watchlist" action={() => dispatch(addWatchlist({animeId: props.match.params.title}))} />
     }

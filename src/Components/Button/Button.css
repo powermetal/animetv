@@ -1,29 +1,31 @@
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .btn {
-    background-color: #ffa800;
-    padding: 1rem;
-    border: none;
-    color: var(--text-dark);
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
+  background-color: #ffa800;
+  padding: 1rem;
+  border: none;
+  color: var(--text-dark);
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 7px;
 }
 
 .btn:hover {
-    background-color: #ffce6c;
+  background-color: #ffce6c;
 }
 
 .btn-greyed {
-    background-color: rgb(116, 116, 116);
-    border: none;
-    padding: 1rem;
-    color: var(--text-dark);
-    font-weight: bold;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
+  background-color: rgb(116, 116, 116);
+  border: none;
+  padding: 1rem;
+  color: var(--text-dark);
+  font-weight: bold;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  border-radius: 7px;
 }
