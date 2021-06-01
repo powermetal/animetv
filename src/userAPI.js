@@ -23,3 +23,15 @@ export const getContinueWatchingList = id => {
     return userAPI.get(`/users/${id}/continue`)
             .then(response => response.data, e => console.log(e))
 }
+
+export const getWatchlist = id => {
+    console.log(id)
+    return userAPI.get(`/users/${id}/watchlist`)
+            .then(response => response.data, e => console.log(e))
+}
+
+export const deleteFromWatchlist = (id, anime) => {
+    console.log(anime)
+    return userAPI.put(`/users/${id}/watchlist`, anime)
+                    .then(response => console.log(response), e => console.log(e))
+}

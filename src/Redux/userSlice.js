@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { getUserData, postToWatching, postToWatchlist } from '../userAPI';
+import { getUserData, postToWatching, postToWatchlist, deleteFromWatchlist } from '../userAPI';
 
 export const fetchUserData = createAsyncThunk(
     'user/userData',
@@ -22,6 +22,14 @@ export const addWatchlist = createAsyncThunk(
         (anime, thunkAPI) => {
             thunkAPI.dispatch(addToWatchlist(anime))
             postToWatchlist(thunkAPI.getState().user.googleId, anime)
+        }
+)
+
+export const removeWatchlist = createAsyncThunk(
+    'user/removeFromWatchlist',
+        (anime, thunkAPI) => {
+            thunkAPI.dispatch(removeFromWatchlist(anime))
+            deleteFromWatchlist(thunkAPI.getState().user.googleId, anime)
         }
 )
 

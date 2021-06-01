@@ -23,7 +23,6 @@ const Home = () => {
 
   const toCard = () =>{
       if(animes.length)
-      console.log(animes)
         return animes.map( anime => {
             return <AnimeCard
                       key={anime.animeId}

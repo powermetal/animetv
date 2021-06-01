@@ -4,7 +4,7 @@ import './paginatedContainer.css';
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
-const PaginatedContainer = ({ pageLimit, items }) => {
+const PaginatedContainer = ({ pageLimit, items = []}) => {
 
     const getDisplayedContent = () => {
         return items.slice(0, pageLimit)

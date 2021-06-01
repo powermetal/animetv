@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import VideoPlayer from '../VideoPlayer/VideoPlayer';
 import { getAnimeVideo } from '../../animeAPI';
 import './Watch.css';
@@ -7,8 +8,10 @@ import SkipNextIcon from '@material-ui/icons/SkipNext';
 import SkipPreviousIcon from '@material-ui/icons/SkipPrevious';
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import { addWatching } from '../../Redux/userSlice';
 
 const Watch = (props) => {
+    const dispatch = useDispatch()
     const [videos, setVideos] = useState([])
 
     const previousEpisode = {
@@ -31,11 +34,12 @@ const Watch = (props) => {
     }
 
     useEffect(() => {
-        const pepe = async () => {
+        const handleVideos = async () => {
             const response = await getAnimeVideo({ title: props.match.params.title, episode: props.match.params.episode })
             setVideos(response)
         }
-        pepe()
+        handleVideos()
+        dispatch(addWatching({animeId: props.match.params.title, lastEpisode: props.match.params.episode }))
     }, [props.match.params.episode])
 
     const renderVideo = () => {

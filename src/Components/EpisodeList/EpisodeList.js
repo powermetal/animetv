@@ -13,26 +13,32 @@ import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
 import { addWatching,
          addWatchlist,
          selectWatchlist,
-         removeFromWatchlist }
+         selectWatching,
+         removeWatchlist }
 from '../../Redux/userSlice';
 
 const EpisodeList = (props) => {
     const [anime, setAnime] = useState({})
     const dispatch = useDispatch()
     const watchlist = useSelector(selectWatchlist)
-
-    const isInWatching = () => {
-
-    }
+    const watching = useSelector(selectWatching)
 
     const animeList = Array.from({ length: anime.episodeCount }, ((e, i) => {
+    
+        const isInWatching = () => {
+            if(watching[props.match.params.title] >= i + 1)
+                return <VisibilityOffIcon />
+            else
+                return <VisibilityIcon />
+        }
+
         return {
             title: e = `${anime.title} - Episodio ${i + 1}`,
             id: i + 1,
             url: `/watch/${props.match.params.title}/${i + 1}`,
             actions: [
                 {
-                    icon: <VisibilityIcon />,
+                    icon: isInWatching(),
                     action: () => {
                         console.log({animeId: props.match.params.title, lastEpisode: i + 1  })
                         dispatch(addWatching({animeId: props.match.params.title, lastEpisode: i + 1  }))
@@ -62,7 +68,7 @@ const EpisodeList = (props) => {
 
     const watchlistButton = () => {
         if(watchlist.find( e => e.animeId === props.match.params.title))
-            return <ActionButton icon={<BookmarkIcon />} text="Watchlist" action={() => dispatch(removeFromWatchlist({animeId: props.match.params.title}))} />
+            return <ActionButton icon={<BookmarkIcon />} text="Watchlist" action={() => dispatch(removeWatchlist({animeId: props.match.params.title}))} />
         else
             return <ActionButton icon={<BookmarkBorderIcon />} text="Watchlist" action={() => dispatch(addWatchlist({animeId: props.match.params.title}))} />
     }
