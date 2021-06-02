@@ -1,13 +1,15 @@
 import React, {useState, useEffect} from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { selectUser } from '../../Redux/userSlice';
 import { getWatchlist } from '../../userAPI';
 import PaginatedContainer from '../PaginatedContainer/PaginatedContainer';
 import AnimeCard from '../AnimeCard/AnimeCard';
+import { removeWatchlist, selectWatchlist } from '../../Redux/userSlice';
 
 const Watchlist = () => {
-
+    const dispatch = useDispatch()
     const user = useSelector(selectUser)
+    const watchlist = useSelector(selectWatchlist)
     const [animes, setAnimes] = useState([])
     
     const getWatchlistList = async () => {
@@ -18,7 +20,7 @@ const Watchlist = () => {
     useEffect( () => {
         if(user.googleId)
             getWatchlistList()
-    },[user])
+    },[user, watchlist])
 
     const toCard = () =>{
         if(animes.length)
@@ -28,12 +30,13 @@ const Watchlist = () => {
                         poster={anime.poster}
                         url={anime.animeId}
                         title={anime.title}
-                        type="search"
+                        type="watchlist"
+                        fn={() => dispatch(removeWatchlist({animeId: anime.animeId}))}
                       />
           } )        
     }
 
-    return <PaginatedContainer items={toCard()} pageLimit={12} />
+    return <div><PaginatedContainer key={'a'} items={toCard()} pageLimit={12} /></div>
 }
 
 export default Watchlist

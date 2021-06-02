@@ -1,6 +1,7 @@
 .card {
   border-radius: 7px;
   overflow: hidden;
+  position: relative;
 }
 
 .card:hover {
@@ -59,4 +60,21 @@
   -webkit-line-clamp: 10;
   overflow: hidden;
   -webkit-box-orient: vertical;
+}
+
+.card .MuiSvgIcon-root {
+  visibility: hidden;
+  background-color: white;
+  border-radius: 50%;
+  position: absolute;
+  color: var(--accent-dark);
+  font-size: 2rem;
+  top: 5px;
+  right: 5px;
+  z-index: 100;
+  cursor: pointer;
+}
+
+.card:hover .MuiSvgIcon-root {
+  visibility: visible;
 }

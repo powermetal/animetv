@@ -9,6 +9,7 @@ import SkipPreviousIcon from '@material-ui/icons/SkipPrevious';
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import { addWatching } from '../../Redux/userSlice';
+import ReorderIcon from '@material-ui/icons/Reorder';
 
 const Watch = (props) => {
     const dispatch = useDispatch()
@@ -29,7 +30,7 @@ const Watch = (props) => {
     }
 
     const episodeList = {
-        label: 'Lista de Episodios',
+        icon: <ReorderIcon />,
         url: `/anime/${props.match.params.title}/`
     }
 

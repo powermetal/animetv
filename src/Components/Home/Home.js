@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import './Home.css';
 import { useSelector } from 'react-redux';
-import { selectUser } from '../../Redux/userSlice';
+import { selectUser, isSignIn } from '../../Redux/userSlice';
 import { getContinueWatchingList } from '../../userAPI';
 import PaginatedContainer from '../PaginatedContainer/PaginatedContainer';
 import AnimeCard from '../AnimeCard/AnimeCard';
+import logo from '../../images/logo.png';
 
 const Home = () => {
 
   const user = useSelector(selectUser)
+  const signedIn = useSelector(isSignIn)
   const [animes, setAnimes] = useState([])
 
   const getWatching = async () => {
@@ -19,7 +21,9 @@ const Home = () => {
   useEffect(() => {
     if(user.googleId)
       getWatching()
-  },[user])
+          else
+      setAnimes([])
+  },[user.googleId])
 
   const toCard = () =>{
       if(animes.length)
@@ -35,11 +39,22 @@ const Home = () => {
         } )        
   }
 
-  return (
-    <div className="home">
-      <PaginatedContainer items={toCard()} pageLimit={12} />
-    </div>
-  );
+  const renderContent = () => {
+    if(signedIn) {
+        return (
+          <div className="home">
+              <PaginatedContainer key={animes.length} items={toCard()} pageLimit={12} />
+          </div>
+        )
+    }
+    else
+        return <div className="home-signed-out">
+          <img src={logo} />
+          <p>Inicia sesión para empezar a agregar contenido a tu lista de seguimiento.</p>
+        </div>      
+  }
+
+  return renderContent()
 }
 
 export default Home

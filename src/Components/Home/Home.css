@@ -1,0 +1,31 @@
+.home-signed-out {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+  flex-direction: column;
+}
+
+.home-signed-out img {
+  height: 300px;
+  margin-bottom: 1rem;
+}
+
+.home-signed-out p {
+  width: 40ch;
+  text-align: center;
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 550px) {
+  .home-signed-out img {
+    height: 200px;
+  }
+
+  .home-signed-out p {
+    width: 25ch;
+    font-size: 1rem;
+  }
+}

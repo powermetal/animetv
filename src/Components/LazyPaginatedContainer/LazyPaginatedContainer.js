@@ -36,7 +36,11 @@ const LazyPaginatedContainer = ({ getContent, renderItem }) => {
         if (state.items[state.page]) {
             return state.items[state.page].map(e => renderItem(e))
         } else {
-            return <div className="episode-list-loader"><Loader type="Puff" color="#ffa800" height={100} width={100} /></div>
+            return (
+            <div className="episode-list-loader">
+                <Loader type="Puff" color="#ffa800" height={100} width={100} timeout={2000} />
+            </div>
+            )
         }
     }
 

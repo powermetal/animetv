@@ -42,14 +42,6 @@
   background-color: rgb(68, 75, 91);
 }
 
-.movielist__item .movielist__actions {
-  visibility: hidden;
-}
-
-.movielist__item:hover .movielist__actions {
-  visibility: visible;
-}
-
 .movielist__actions {
   display: flex;
 }

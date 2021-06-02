@@ -14,18 +14,21 @@
 
 .episode-list-anime img {
   height: 100%;
+  width: 100%;
   margin-bottom: 1rem;
   border-radius: 7px;
 }
 
 .episode-list-anime-info-poster {
   position: relative;
+  height: 350px;
+  width: 250px;
 }
 
 .episode-list-anime-info-poster .action-button {
   position: absolute;
-  bottom: 1rem;
-  right: 1rem;
+  bottom: 0.5rem;
+  right: 0.5rem;
   background-color: #1c2128;
   border-radius: 7px;
   padding: 0.5rem;
