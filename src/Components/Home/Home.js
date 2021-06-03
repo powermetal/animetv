@@ -21,7 +21,7 @@ const Home = () => {
   useEffect(() => {
     if(user.googleId)
       getWatching()
-          else
+    else
       setAnimes([])
   },[user.googleId])
 
@@ -48,10 +48,12 @@ const Home = () => {
         )
     }
     else
-        return <div className="home-signed-out">
-          <img src={logo} />
-          <p>Inicia sesión para empezar a agregar contenido a tu lista de seguimiento.</p>
-        </div>      
+        return(
+          <div className="home-signed-out">
+            <img src={logo} />
+            <p>Inicia sesión para empezar a agregar contenido a tu lista de seguimiento.</p>
+          </div>    
+        )
   }
 
   return renderContent()

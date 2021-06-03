@@ -9,10 +9,10 @@ import { removeWatchlist, selectWatchlist } from '../../Redux/userSlice';
 const Watchlist = () => {
     const dispatch = useDispatch()
     const user = useSelector(selectUser)
-    const watchlist = useSelector(selectWatchlist)
     const [animes, setAnimes] = useState([])
     
     const getWatchlistList = async () => {
+        console.log('voy a buscar la watchlist al server')
         const response = await getWatchlist(user.googleId)
         setAnimes(response)
     }
@@ -20,7 +20,7 @@ const Watchlist = () => {
     useEffect( () => {
         if(user.googleId)
             getWatchlistList()
-    },[user, watchlist])
+    },[user])
 
     const toCard = () =>{
         if(animes.length)

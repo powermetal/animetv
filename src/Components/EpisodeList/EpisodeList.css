@@ -8,7 +8,6 @@
 
 .episode-list-anime {
   display: flex;
-  background-color: var(--secondary-dark);
   width: 100%;
 }
 
