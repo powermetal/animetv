@@ -1,30 +1,28 @@
-import React, {useState, useEffect} from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { selectUser } from '../../Redux/userSlice';
 import { getWatchlist } from '../../userAPI';
 import PaginatedContainer from '../PaginatedContainer/PaginatedContainer';
 import AnimeCard from '../AnimeCard/AnimeCard';
-import { removeWatchlist, selectWatchlist } from '../../Redux/userSlice';
+import { removeWatchlist, selectWatchlist, selectUser, refreshWatchlist } from '../../Redux/userSlice';
 
 const Watchlist = () => {
     const dispatch = useDispatch()
+    const watchlist = useSelector(selectWatchlist)
     const user = useSelector(selectUser)
-    const [animes, setAnimes] = useState([])
-    
-    const getWatchlistList = async () => {
-        console.log('voy a buscar la watchlist al server')
-        const response = await getWatchlist(user.googleId)
-        setAnimes(response)
+
+    const getUpdatedWatchlist = async () => {
+        const animes = await getWatchlist(user.googleId)
+        dispatch(refreshWatchlist(animes))
     }
 
     useEffect( () => {
         if(user.googleId)
-            getWatchlistList()
-    },[user])
+        getUpdatedWatchlist()
+    }, [user.googleId])
 
     const toCard = () =>{
-        if(animes.length)
-          return animes.map( anime => {
+        if(watchlist.length)
+          return watchlist.map( anime => {
               return <AnimeCard
                         key={anime.animeId}
                         poster={anime.poster}

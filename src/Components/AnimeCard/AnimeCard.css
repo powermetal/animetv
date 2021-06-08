@@ -67,7 +67,7 @@
   background-color: white;
   border-radius: 50%;
   position: absolute;
-  color: var(--accent-dark);
+  color: var(--secondary-dark);
   font-size: 2rem;
   top: 5px;
   right: 5px;

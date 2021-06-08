@@ -59,6 +59,9 @@ export const userSlice = createSlice({
                 return state
             return {...state, watchlist: [...state.watchlist, action.payload]}
         },
+        refreshWatchlist: (state, action) => {
+            return {...state, watchlist: action.payload}
+        },
         removeFromWatchlist: (state, action) => {
             return {...state, watchlist: state.watchlist.filter( e => e.animeId !== action.payload.animeId)}
         }
@@ -87,7 +90,8 @@ export const {
     logout,
     addToWatching,
     addToWatchlist,
-    removeFromWatchlist
+    removeFromWatchlist,
+    refreshWatchlist
 } = userSlice.actions
 
 export default userSlice.reducer

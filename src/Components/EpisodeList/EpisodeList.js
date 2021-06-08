@@ -66,11 +66,17 @@ const EpisodeList = (props) => {
         }
     }
 
+    const animeInfo = {
+        animeId: props.match.params.title,
+        poster: anime.poster,
+        title: anime.title
+    }
+
     const watchlistButton = () => {
         if(watchlist.find( e => e.animeId === props.match.params.title))
             return <ActionButton icon={<BookmarkIcon />} text="Watchlist" action={() => dispatch(removeWatchlist({animeId: props.match.params.title}))} />
         else
-            return <ActionButton icon={<BookmarkBorderIcon />} text="Watchlist" action={() => dispatch(addWatchlist({animeId: props.match.params.title}))} />
+            return <ActionButton icon={<BookmarkBorderIcon />} text="Watchlist" action={() => dispatch(addWatchlist(animeInfo))} />
     }
 
     const renderList = () => {

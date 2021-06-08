@@ -25,7 +25,6 @@ export const getContinueWatchingList = id => {
 }
 
 export const getWatchlist = id => {
-    console.log(id)
     return userAPI.get(`/users/${id}/watchlist`)
             .then(response => response.data, e => console.log(e))
 }
