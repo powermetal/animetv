@@ -14,14 +14,16 @@ import { addWatching,
          addWatchlist,
          selectWatchlist,
          selectWatching,
-         removeWatchlist }
-from '../../Redux/userSlice';
+         removeWatchlist,
+         isSignIn
+} from '../../Redux/userSlice';
 
 const EpisodeList = (props) => {
     const [anime, setAnime] = useState({})
     const dispatch = useDispatch()
     const watchlist = useSelector(selectWatchlist)
     const watching = useSelector(selectWatching)
+    const signedIn = useSelector(isSignIn)
 
     const animeList = Array.from({ length: anime.episodeCount }, ((e, i) => {
     
@@ -79,14 +81,21 @@ const EpisodeList = (props) => {
             return <ActionButton icon={<BookmarkBorderIcon />} text="Watchlist" action={() => dispatch(addWatchlist(animeInfo))} />
     }
 
+    const renderWatchlist = () => {
+        if(signedIn)
+            return watchlistButton()
+        else
+            return null
+    }
+
     const renderList = () => {
         if (anime.poster) {
             return (
                 <>
                     <div className="episode-list-anime-info">
                         <div className="episode-list-anime-info-poster">
-                            <img src={anime.poster} />
-                            {watchlistButton()}
+                            <img src={anime.poster} alt={anime.title}/>
+                            {renderWatchlist()}
                         </div>
                         <ul className="episode-list-anime-info-state">
                             <li>{anime.type}</li>

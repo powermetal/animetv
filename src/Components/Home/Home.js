@@ -51,7 +51,7 @@ const Home = () => {
     else
         return(
           <div className="home-signed-out">
-            <img src={logo} />
+            <img src={logo} alt="Animoo Logo" />
             <p>Inicia sesión para empezar a agregar contenido a tu lista de seguimiento.</p>
           </div>    
         )

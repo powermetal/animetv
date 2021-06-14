@@ -9,13 +9,16 @@ import ActionButton from '../ActionButton/ActionButton';
 import {
     addWatchlist,
     selectWatchlist,
-    removeWatchlist }
+    removeWatchlist,
+    isSignIn
+}
 from '../../Redux/userSlice';
 
 const AnimeCard = ({ title, poster, url, episode = null, nextEpisodeDate, type, fn }) => {
 
     const dispatch = useDispatch()
     const watchlist = useSelector(selectWatchlist)
+    const signedIn = useSelector(isSignIn)
 
     const toEpisode = () => {
         if(nextEpisodeDate)
@@ -44,7 +47,7 @@ const AnimeCard = ({ title, poster, url, episode = null, nextEpisodeDate, type, 
     }
 
     const renderWatchlist = () => {
-        if(type === 'search')
+        if(type === 'search' && signedIn)
             return (
             <div className="card-watchlist">
                     {watchlistButton()}

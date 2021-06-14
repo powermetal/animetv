@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import './DropDownMenu.css';
 import { Link } from 'react-router-dom';
 

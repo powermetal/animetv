@@ -1,5 +1,4 @@
 import axios from 'axios';
-import qs from 'qs';
 
 export const animeAPI = axios.create({
     baseURL: 'http://localhost:5000'
@@ -13,7 +12,7 @@ export const getAnimeVideo = anime => {
 }
 
 export const searchAnime = queryParams => {
-    return animeAPI.get('/animes', { params: { search: queryParams.q.replace(' ', '%20'), page: queryParams.page } })
+    return animeAPI.get('/animes', { params: { search: queryParams.q, page: queryParams.page } })
         .then(response => {
             return response.data
         }, e => console.log(e))

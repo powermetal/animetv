@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import './VideoPlayer.css';
 
 const VideoPlayer = (props) => {
@@ -16,6 +16,7 @@ const VideoPlayer = (props) => {
         <div className="video-container">
             <div className="video-button-list">{getVideos()}</div>
             <iframe
+                title="video player"
                 src={selectedVideo}
                 scrolling="no"
                 frameBorder="0"

@@ -8,6 +8,7 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 const LazyPaginatedContainer = ({ getContent, renderItem }) => {
 
     const [state, setState] = useState({ page: 1, items: {} })
+    const [loading, setLoading] = useState(false);
 
     const onNextPage = () => onPageChange(state.page + 1)
 
@@ -20,7 +21,9 @@ const LazyPaginatedContainer = ({ getContent, renderItem }) => {
         if (state.items[newPage])
             setState({ ...state, page: newPage })
         else {
-            const newItems = await getContent(newPage);
+            setLoading(true)
+            const newItems = await getContent(newPage)
+            setLoading(false)
             if (newItems && newItems.length)
                 setState({
                     ...state,
@@ -44,12 +47,19 @@ const LazyPaginatedContainer = ({ getContent, renderItem }) => {
         }
     }
 
+    const onClick = (fn) => {
+        if(loading)
+            return null
+        else
+            return fn()
+    }
+
     const renderButtons = () => {
         if(state.items[state.page])
             return (
             <div className="paginated_container__pagination">
-                <button onClick={onPreviousPage}><NavigateBeforeIcon />prev</button>
-                <button onClick={onNextPage}>next <NavigateNextIcon /></button>
+                <button onClick={() => onClick(onPreviousPage)}><NavigateBeforeIcon />prev</button>
+                <button onClick={() => onClick(onNextPage)}>next <NavigateNextIcon /></button>
             </div>
             )
     }

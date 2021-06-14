@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { searchAnime } from '../../animeAPI';
 import qs from 'qs'
 import AnimeCard from '../AnimeCard/AnimeCard';

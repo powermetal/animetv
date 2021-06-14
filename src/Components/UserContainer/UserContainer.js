@@ -16,7 +16,6 @@ const UserContainer = () => {
     const signedIn = useSelector(isSignIn)
     const user = useSelector(selectUser)
     const dispatch = useDispatch()
-    const queryParams = "/animes?search=j&page=1"
 
     const onSuccess = (response) => {
         dispatch(login(getUserData(response)))
@@ -37,7 +36,7 @@ const UserContainer = () => {
             dispatch(logout())
         }
 
-    const { signOut, signOutloaded } = useGoogleLogout({
+    const { signOut } = useGoogleLogout({
         onFailure,
         ...googleOAuth,
         onLogoutSuccess
@@ -57,7 +56,7 @@ const UserContainer = () => {
         if(signedIn) {
             return (
             <div className="user-container" onClick={() => setOpen(!open)}>
-                <img src={user.avatar} />
+                <img src={user.avatar} alt="avatar" />
                 <p>{user.name}</p>
                 <div className="user-container-menu">
                     <DropDownMenu
