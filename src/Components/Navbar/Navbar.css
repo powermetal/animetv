@@ -5,3 +5,16 @@
   max-width: 1420px;
   margin-bottom: 2rem;
 }
+
+.search-item {
+  padding: 1rem;
+  width: 100%;
+  background-color: var(--primary-dark);
+  color: white;
+  border-bottom: 1px solid #252525;
+  cursor: pointer;
+}
+
+.search-item:hover {
+  background-color: #2f3742;
+}

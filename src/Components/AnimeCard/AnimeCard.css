@@ -56,13 +56,13 @@
   -webkit-box-orient: vertical;
 }
 
-.card-title p:hover {
+.card:hover .card-title p {
   -webkit-line-clamp: 10;
   overflow: hidden;
   -webkit-box-orient: vertical;
 }
 
-.card .MuiSvgIcon-root {
+.card > .MuiSvgIcon-root {
   visibility: hidden;
   background-color: white;
   border-radius: 50%;
@@ -75,6 +75,38 @@
   cursor: pointer;
 }
 
-.card:hover .MuiSvgIcon-root {
+.card:hover > .MuiSvgIcon-root {
+  visibility: visible;
+}
+
+.card-watchlist {
+  visibility: hidden;
+  position: absolute;
+  background-color: var(--primary-dark);
+  color: white;
+  top: 0.5rem;
+  right: 0.5rem;
+  z-index: 99;
+  padding: 0.5rem 0.5rem 0.5rem 1rem;
+  border-radius: 7px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.card-watchlist .action-button {
+  display: flex;
+  align-items: center;
+}
+
+.card-watchlist p {
+  order: 2;
+}
+
+.card-watchlist .MuiSvgIcon-root {
+  order: 1;
+  margin-left: 0.5rem;
+}
+
+.card:hover .card-watchlist {
   visibility: visible;
 }

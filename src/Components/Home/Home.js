@@ -31,7 +31,8 @@ const Home = () => {
             return <AnimeCard
                       key={anime.animeId}
                       nextEpisodeDate={anime.nextEpisodeDate}
-                      episode={anime.nextEpisode} title={anime.title}
+                      episode={anime.nextEpisode}
+                      title={anime.title}
                       poster={anime.poster}
                       url={`${anime.animeId}/${anime.nextEpisode}`}
                       type={'watch'}

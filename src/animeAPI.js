@@ -25,3 +25,11 @@ export const getEpisodeList = title => {
             return response.data
         }, e => console.log(e))
 }
+
+export const getAnimeTitles = title => {
+    return axios.get(`https://kitsu.io/api/edge/anime?filter[text]=${title}&fields[anime]=titles`)
+                    .then( response => {
+                        return response.data.data.map(e => e.attributes.titles.en_jp)
+                    })
+}
+
