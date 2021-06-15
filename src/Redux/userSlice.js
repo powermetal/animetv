@@ -73,7 +73,8 @@ export const userSlice = createSlice({
                 acc[e.animeId] = e.lastEpisode
                 return acc
             },{})
-
+            console.log('payload:', action.payload)
+            console.log('watching procesado:', watching)
             return { ...state, watchlist: action.payload.watchlist, watching: watching }
         }
     }
