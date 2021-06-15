@@ -19,7 +19,9 @@ export const postToWatchlist = (id, anime) => {
 }
 
 export const getContinueWatchingList = id => {
-    return userAPI.get(`/users/${id}/continue`)
+    return userAPI
+            .get(`/users/${id}/continue`)
+            .then(response => response.data)
 }
 
 export const getWatchlist = id => {
