@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/animetv/static/css/main.1dcbbf24.chunk.css",
-    "main.js": "/animetv/static/js/main.65d9fa57.chunk.js",
-    "main.js.map": "/animetv/static/js/main.65d9fa57.chunk.js.map",
+    "main.js": "/animetv/static/js/main.af218a73.chunk.js",
+    "main.js.map": "/animetv/static/js/main.af218a73.chunk.js.map",
     "runtime-main.js": "/animetv/static/js/runtime-main.f1c9f618.js",
     "runtime-main.js.map": "/animetv/static/js/runtime-main.f1c9f618.js.map",
     "static/css/2.373bc5f8.chunk.css": "/animetv/static/css/2.373bc5f8.chunk.css",
@@ -21,6 +21,6 @@
     "static/css/2.373bc5f8.chunk.css",
     "static/js/2.85da393b.chunk.js",
     "static/css/main.1dcbbf24.chunk.css",
-    "static/js/main.65d9fa57.chunk.js"
+    "static/js/main.af218a73.chunk.js"
   ]
 }
