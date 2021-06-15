@@ -47,7 +47,10 @@
 
 .paginated_container__items {
   display: grid;
+  display: -ms-grid;
   grid-template: auto / 1fr 1fr 1fr 1fr 1fr 1fr;
+  -ms-grid-column: 1fr 1fr 1fr 1fr 1fr 1fr;
+  -ms-grid-row: auto;
   grid-gap: 3.5rem;
   margin: 1rem;
 }
