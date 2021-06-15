@@ -5,7 +5,9 @@ const userAPI = axios.create({
 })
 
 export const getUserData = id => {
-    return userAPI.get(`/users/${id}`)
+    return userAPI
+                .get(`/users/${id}`)
+                .then(response => response.data)
 }
 
 export const postToWatching = (id, anime) => {
