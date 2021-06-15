@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const userAPI = axios.create({
-    baseURL: 'http://localhost:5000'
+    baseURL: 'https://animootv.herokuapp.com'
 })
 
 export const getUserData = id => {

@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const animeAPI = axios.create({
-    baseURL: 'http://localhost:5000'
+    baseURL: 'https://animootv.herokuapp.com'
 })
 
 export const getAnimeVideo = anime => {
