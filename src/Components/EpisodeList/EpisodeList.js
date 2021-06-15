@@ -28,6 +28,8 @@ const EpisodeList = (props) => {
     const animeList = Array.from({ length: anime.episodeCount }, ((e, i) => {
     
         const isInWatching = () => {
+            if(!signedIn)
+                return null
             if(watching[props.match.params.title] >= i + 1)
                 return <VisibilityOffIcon />
             else
