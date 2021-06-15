@@ -15,11 +15,11 @@ const App = () => {
             <div className="app-sec">
             <BrowserRouter>
                 <Sidebar />
-                <Route path="/" exact component={Home} />
-                <Route path="/watchlist" exact component={Watchlist} />
-                <Route path="/search" exact component={SearchResults} />
-                <Route path="/anime/:title" exact component={EpisodeList} />
-                <Route path="/watch/:title/:episode" exact component={Watch} />
+                <Route path="/animetv" exact component={Home} />
+                <Route path="/animetv/watchlist" exact component={Watchlist} />
+                <Route path="/animetv/search" exact component={SearchResults} />
+                <Route path="/animetv/anime/:title" exact component={EpisodeList} />
+                <Route path="/animetv/watch/:title/:episode" exact component={Watch} />
             </BrowserRouter>
             </div>
         </div>
