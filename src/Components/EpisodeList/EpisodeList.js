@@ -42,7 +42,6 @@ const EpisodeList = (props) => {
                 {
                     icon: isInWatching(),
                     action: () => {
-                        console.log({animeId: props.match.params.title, lastEpisode: i + 1  })
                         dispatch(addWatching({animeId: props.match.params.title, lastEpisode: i + 1  }))
                     }
                 },
