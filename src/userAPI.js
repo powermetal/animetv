@@ -21,7 +21,9 @@ export const getContinueWatchingList = id => {
 }
 
 export const getWatchlist = id => {
-    return userAPI.get(`/users/${id}/watchlist`)
+    return userAPI
+            .get(`/users/${id}/watchlist`)
+            .then(response => response.data)
 }
 
 export const deleteFromWatchlist = (id, anime) => {

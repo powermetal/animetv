@@ -5,7 +5,7 @@ export const fetchUserData = createAsyncThunk(
     'user/userData',
         userId => {
             const response = getUserData(userId)
-            return response
+            return response.data
         }
   )
 
