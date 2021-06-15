@@ -20,12 +20,12 @@
   padding: 1rem;
   outline: none;
   background-color: transparent;
-  color: var(--text-dark);
+  color: #ffffff;
   font-size: 1.2rem;
   border-left: none;
   border-right: none;
   border-top: none;
-  border-bottom: 3px var(--accent-dark) solid;
+  border-bottom: 3px #ffa800 solid;
   text-indent: 2rem;
   border-radius: 7px;
 }

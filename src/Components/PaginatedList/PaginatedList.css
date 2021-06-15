@@ -10,7 +10,7 @@
 
 .movielist a {
   text-decoration: none;
-  color: var(--text-dark);
+  color: #ffffff;
   font-weight: 520;
   margin-left: 1rem;
 }
@@ -31,7 +31,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 0.5rem;
-  color: var(--text-dark);
+  color: #ffffff;
 }
 
 .movielist__item.even {
@@ -68,7 +68,7 @@
   margin: 1rem;
   cursor: pointer;
   border-radius: 7px;
-  color: var(--text-dark);
+  color: #ffffff;
   font-weight: bold;
   display: -webkit-box;
   -webkit-line-clamp: 15;
@@ -90,7 +90,7 @@
 }
 
 .movielist__pagination span {
-  color: var(--text-dark);
+  color: #ffffff;
   font-weight: bold;
   font-size: 1rem;
 }

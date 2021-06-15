@@ -18,8 +18,9 @@ const LazyPaginatedContainer = ({ getContent, renderItem }) => {
     }
 
     const onPageChange = async newPage => {
-        if (state.items[newPage])
+        if (state.items[newPage]) {
             setState({ ...state, page: newPage })
+        }
         else {
             setLoading(true)
             const newItems = await getContent(newPage)

@@ -57,11 +57,20 @@ const AnimeCard = ({ title, poster, url, episode = null, nextEpisodeDate, type, 
             return null
     }
 
+    const renderUrl = () => {
+        if(nextEpisodeDate)
+            return '#'
+        if(type === 'watch')
+            return `/watch/${url}`
+        else
+            return `/anime/${url}`
+    }
+
     return (
         <div className="card" key={url}>
             {renderRemoveButton()}
             {renderWatchlist()}
-            <Link to={`${type === 'watch' ? '/watch/' : '/anime/'}${url}`}>
+            <Link to={renderUrl()}>
                 <img src={poster} alt={title}/>
                 <div className="card-title">
                     <p>{title}</p>

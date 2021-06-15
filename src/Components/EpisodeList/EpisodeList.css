@@ -55,10 +55,10 @@
 }
 
 .episode-list-anime-info-state li {
-  background-color: var(--accent-dark);
+  background-color: #ffa800;
   padding: 0.5rem 0.5rem;
   border-radius: 7px;
-  color: var(--text-dark);
+  color: #ffffff;
   font-weight: bold;
   margin-right: 0.5rem;
   display: flex;
@@ -67,7 +67,7 @@
 
 .episode-list-anime-info p {
   width: 250px;
-  color: var(--text-dark);
+  color: #ffffff;
   display: -webkit-box;
   -webkit-line-clamp: 15;
   overflow: hidden;

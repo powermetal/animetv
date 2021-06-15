@@ -6,7 +6,7 @@ a {
   background-color: #ffa800;
   padding: 1rem;
   border: none;
-  color: var(--text-dark);
+  color: #ffffff;
   font-weight: bold;
   display: flex;
   align-items: center;
@@ -23,7 +23,7 @@ a {
   background-color: rgb(116, 116, 116);
   border: none;
   padding: 1rem;
-  color: var(--text-dark);
+  color: #ffffff;
   font-weight: bold;
   text-decoration: none;
   display: flex;

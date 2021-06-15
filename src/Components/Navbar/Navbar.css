@@ -9,7 +9,7 @@
 .search-item {
   padding: 1rem;
   width: 100%;
-  background-color: var(--primary-dark);
+  background-color: #393e46;
   color: white;
   border-bottom: 1px solid #252525;
   cursor: pointer;
