@@ -69,11 +69,11 @@ export const userSlice = createSlice({
 
     extraReducers: {
         [fetchUserData.fulfilled]: (state, action) => {
+            console.log('payload:', action.payload)
             const watching = action.payload.watching.reduce( (acc, e) => {
                 acc[e.animeId] = e.lastEpisode
                 return acc
             },{})
-            console.log('payload:', action.payload)
             console.log('watching procesado:', watching)
             return { ...state, watchlist: action.payload.watchlist, watching: watching }
         }
