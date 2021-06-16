@@ -108,3 +108,14 @@
     -webkit-line-clamp: 17;
   }
 }
+
+@media screen and (max-width: 450px) {
+  .episode-list-anime-info {
+    justify-content: center;
+    margin: 0;
+  }
+
+  .episode-list-anime-info p {
+    display: none;
+  }
+}

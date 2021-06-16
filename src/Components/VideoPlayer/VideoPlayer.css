@@ -34,8 +34,22 @@
 }
 
 @media screen and (max-width: 450px) {
+  .video-container {
+    align-items: center;
+  }
+
   .video-container iframe {
     width: 339px;
     height: 192px;
+  }
+
+  .video-button-item {
+    padding: 1rem 0;
+  }
+
+  .video-button-list {
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items:center;
   }
 }
