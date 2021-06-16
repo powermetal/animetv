@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/animetv/static/css/main.69ee13c2.chunk.css",
-    "main.js": "/animetv/static/js/main.af218a73.chunk.js",
-    "main.js.map": "/animetv/static/js/main.af218a73.chunk.js.map",
+    "main.css": "/animetv/static/css/main.101f8eeb.chunk.css",
+    "main.js": "/animetv/static/js/main.c6392fe3.chunk.js",
+    "main.js.map": "/animetv/static/js/main.c6392fe3.chunk.js.map",
     "runtime-main.js": "/animetv/static/js/runtime-main.f1c9f618.js",
     "runtime-main.js.map": "/animetv/static/js/runtime-main.f1c9f618.js.map",
     "static/css/2.373bc5f8.chunk.css": "/animetv/static/css/2.373bc5f8.chunk.css",
@@ -12,7 +12,7 @@
     "static/js/3.8e06ef3f.chunk.js.map": "/animetv/static/js/3.8e06ef3f.chunk.js.map",
     "index.html": "/animetv/index.html",
     "static/css/2.373bc5f8.chunk.css.map": "/animetv/static/css/2.373bc5f8.chunk.css.map",
-    "static/css/main.69ee13c2.chunk.css.map": "/animetv/static/css/main.69ee13c2.chunk.css.map",
+    "static/css/main.101f8eeb.chunk.css.map": "/animetv/static/css/main.101f8eeb.chunk.css.map",
     "static/js/2.85da393b.chunk.js.LICENSE.txt": "/animetv/static/js/2.85da393b.chunk.js.LICENSE.txt",
     "static/media/logo.292e18a7.png": "/animetv/static/media/logo.292e18a7.png"
   },
@@ -20,7 +20,7 @@
     "static/js/runtime-main.f1c9f618.js",
     "static/css/2.373bc5f8.chunk.css",
     "static/js/2.85da393b.chunk.js",
-    "static/css/main.69ee13c2.chunk.css",
-    "static/js/main.af218a73.chunk.js"
+    "static/css/main.101f8eeb.chunk.css",
+    "static/js/main.c6392fe3.chunk.js"
   ]
 }
