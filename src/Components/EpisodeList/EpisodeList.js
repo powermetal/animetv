@@ -37,7 +37,7 @@ const EpisodeList = (props) => {
         }
 
         return {
-            title: e = `${anime.title} - Episodio ${i + 1}`,
+            title: e = `Episodio ${i + 1}`,
             id: i + 1,
             url: `/watch/${props.match.params.title}/${i + 1}`,
             actions: [

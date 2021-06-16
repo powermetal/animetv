@@ -113,3 +113,9 @@
     word-break: break-all;
   }
 }
+
+@media screen and (max-width: 450px) {
+  .paginated_container__items {
+    grid-template: auto / 1fr;
+  }
+}
