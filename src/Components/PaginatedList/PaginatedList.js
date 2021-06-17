@@ -41,9 +41,9 @@ const PaginatedList = ({ tabs }) => {
             return displayedContent.map((m, i) => {
                 return (
                     <div key={`${tab}:${m.id}`} className={`movielist__item ${i % 2 === 0 ? 'even' : 'odd'}`}>
-                        <Link to={m.url}><p>{m.title}</p></Link>
+                        <Link key={`${tab}:${m.id}`} to={m.url}><p>{m.title}</p></Link>
                         <div className="movielist__actions">
-                            {m.actions.map( a => <ActionButton action={a.action} icon={a.icon} />)}
+                            {m.actions.map( a => <ActionButton key={m.title} action={a.action} icon={a.icon} />)}
                         </div>
                     </div>
                 )
