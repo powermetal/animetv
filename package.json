@@ -1,5 +1,5 @@
 {
-  "homepage":"https://powermetal.github.io/animetv",
+  "homepage": "https://powermetal.github.io/animetv",
   "name": "anime-tv",
   "version": "0.1.0",
   "private": true,
@@ -16,6 +16,7 @@
     "axios": "^0.21.1",
     "core-js": "^3.14.0",
     "qs": "^6.10.1",
+    "ramda": "^0.27.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-google-login": "^5.2.2",

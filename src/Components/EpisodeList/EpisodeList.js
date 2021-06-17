@@ -61,14 +61,6 @@ const EpisodeList = (props) => {
         getEpisodes()
     }, [props.match.params.title]) 
 
-    const episodeList = {
-        episodes: {
-            tab: anime.title,
-            items: animeList,
-            default: true
-        }
-    }
-
     const animeInfo = {
         animeId: props.match.params.title,
         poster: anime.poster,
@@ -105,7 +97,7 @@ const EpisodeList = (props) => {
                         <p alt={anime.overview}>{anime.overview}</p>
                     </div>
                     <div className="episode-list-pagination">
-                        <PaginatedList tabs={episodeList} />
+                        <PaginatedList items={animeList} title={anime.title} />
                     </div>
                 </>
             )
